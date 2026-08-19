@@ -266,3 +266,17 @@ body { overflow-x: hidden; }
   .shelf-head, .ticker, .foot, .bar { flex-direction: column; align-items: flex-start; }
   .ticker { grid-template-columns: 1fr 1fr; }
 }
+
+.bar .magnet {
+  margin: 0;
+  max-width: 420px;
+  width: min(420px, 58vw);
+}
+.shelf.tight { padding: 36px 7vw 12vh; }
+.theater .screen { padding: 12px 4vw 48px; }
+.theater h1 {
+  margin: 18px 0 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 28px;
+  font-weight: 500;
+}
