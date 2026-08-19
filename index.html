@@ -4,45 +4,22 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Link Play</title>
-  <meta name="description" content="磁力在浏览器里播。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-  <div class="noise" aria-hidden="true"></div>
   <header class="bar">
     <a class="logo" href="index.html">Link<span>Play</span></a>
-    <nav>
-      <a href="#shelf">片单</a>
-    </nav>
+    <form id="magnet-form" class="magnet">
+      <input name="magnet" type="text" placeholder="magnet:…" autocomplete="off" spellcheck="false">
+      <button type="submit">播</button>
+    </form>
   </header>
-
-  <main>
-    <section class="mast">
-      <p class="kicker">Browser P2P</p>
-      <h1>打开链接，<em>直接入戏。</em></h1>
-      <p class="lede">页面在 GitHub Pages。片子走磁力节点，不经过那根 3Mbps 的上行。</p>
-      <form id="magnet-form" class="magnet">
-        <input name="magnet" type="text" placeholder="magnet:?xt=urn:btih:…" autocomplete="off" spellcheck="false">
-        <button type="submit">播</button>
-      </form>
-    </section>
-
-    <section id="shelf" class="shelf">
-      <div class="shelf-head">
-        <h2>在映</h2>
-        <p>演示是 Blender 开源短片。只加你有权传的磁力。</p>
-      </div>
-      <div id="catalog" class="posters" aria-live="polite"></div>
-    </section>
+  <main class="shelf tight">
+    <div id="catalog" class="posters" aria-live="polite"></div>
   </main>
-
-  <footer class="foot">
-    <span>Link Play</span>
-    <span>片单 videos.json · 本地 python3 -m http.server</span>
-  </footer>
   <script src="assets/catalog.js"></script>
 </body>
 </html>
