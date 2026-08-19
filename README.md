@@ -17,9 +17,9 @@ python3 -m http.server
 本站的做法：
 
 1. GitHub Pages（或任意静态托管）只下发页面和 `videos.json`，体积很小。
-2. 播放页引入 jsDelivr 上的 `webtorrent@2.5.1`。
+2. 播放页引入 jsDelivr 上的 `webtorrent@2.5.1`，并用仓库根目录的官方 `sw.min.js` 做同域 Service Worker（浏览器不允许从 CDN 注册 SW）。
 3. 浏览器加入 torrent swarm：从其他 WebRTC 节点、以及磁力里的 `ws` web seed / `xs` `.torrent` 地址拉数据。
-4. 选中种子里第一个可播放文件（`mp4` / `webm` / `mkv`），边下载边写入 `<video>`。
+4. 选中种子里第一个可播放文件（`mp4` / `webm` / `mkv`），优先边下边播；Service Worker 不可用时改为下完再播。
 
 因此 **VPS 不必输出视频字节**，也不需要额外的付费 CDN / 对象存储来扛片源。带宽由节点和 web seed 承担。
 
@@ -93,5 +93,6 @@ BitTorrent 本身是传输协议，但分享未授权的影视作品在多数地
 | `watch.html` | `?id=slug` 或 `?magnet=` 播放；进度、节点、速度；复制分享链接 |
 | `videos.json` | 片单 |
 | `assets/watch.js` | 引入 jsDelivr 的 `webtorrent@2.5.1`，选第一个可播放视频文件 |
+| `sw.min.js` | 官方 WebTorrent 2.5.1 Service Worker（必须同域，CDN 无法注册 SW）。播放页用它做边下边播；失败时改为下完再播 |
 
 播放页是深色、少干扰的布局。统计项包括下载进度、节点数和实时速度。
