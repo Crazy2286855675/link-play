@@ -3,35 +3,46 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Link Play · 浏览器磁力播放</title>
-  <meta name="description" content="静态磁力播放站。视频在浏览器里用 WebTorrent 边下边播，不经过你的 VPS。">
+  <title>Link Play</title>
+  <meta name="description" content="磁力在浏览器里播。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-  <div class="wrap">
-    <header class="site-header">
-      <div class="brand">
-        <strong>Link Play</strong>
-        <span>静态站 · 浏览器 P2P</span>
-      </div>
-    </header>
+  <div class="noise" aria-hidden="true"></div>
+  <header class="bar">
+    <a class="logo" href="index.html">Link<span>Play</span></a>
+    <nav>
+      <a href="#shelf">片单</a>
+    </nav>
+  </header>
 
-    <section class="hero">
-      <h1>点开磁力，在浏览器里播</h1>
-      <p>页面托管在 GitHub Pages，视频字节不经过你的 3Mbps VPS。浏览器通过 WebTorrent 从 swarm 和 web seed 拉流，边下边播。</p>
-      <p class="legal">请只添加并播放你拥有传播权的磁力链接。演示片仅使用 Blender / WebTorrent.io 的开源短片（Sintel、Big Buck Bunny）。不要提交或分享盗版电影磁力。</p>
-      <form id="magnet-form" class="magnet-form">
-        <input name="magnet" type="text" placeholder="粘贴 magnet:?xt=urn:btih:... 后直接播放" autocomplete="off" spellcheck="false">
-        <button type="submit">播放磁力</button>
+  <main>
+    <section class="mast">
+      <p class="kicker">Browser P2P</p>
+      <h1>打开链接，<em>直接入戏。</em></h1>
+      <p class="lede">页面在 GitHub Pages。片子走磁力节点，不经过那根 3Mbps 的上行。</p>
+      <form id="magnet-form" class="magnet">
+        <input name="magnet" type="text" placeholder="magnet:?xt=urn:btih:…" autocomplete="off" spellcheck="false">
+        <button type="submit">播</button>
       </form>
     </section>
 
-    <section id="catalog" class="grid" aria-live="polite"></section>
+    <section id="shelf" class="shelf">
+      <div class="shelf-head">
+        <h2>在映</h2>
+        <p>演示是 Blender 开源短片。只加你有权传的磁力。</p>
+      </div>
+      <div id="catalog" class="posters" aria-live="polite"></div>
+    </section>
+  </main>
 
-    <footer class="site-footer">
-      无后端、无构建。本地预览：<code>python3 -m http.server</code>。片单在 <code>videos.json</code>。
-    </footer>
-  </div>
+  <footer class="foot">
+    <span>Link Play</span>
+    <span>片单 videos.json · 本地 python3 -m http.server</span>
+  </footer>
   <script src="assets/catalog.js"></script>
 </body>
 </html>
