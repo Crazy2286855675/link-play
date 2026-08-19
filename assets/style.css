@@ -121,13 +121,11 @@ body { overflow-x: hidden; }
 
 .shelf { padding: 0 7vw 12vh; }
 .shelf-head {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 24px;
+  display: block;
   margin-bottom: 28px;
   border-top: 1px solid var(--line);
   padding-top: 28px;
+  max-width: 640px;
 }
 .shelf-head h2 {
   margin: 0;
@@ -139,8 +137,8 @@ body { overflow-x: hidden; }
 
 .posters {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 28px 20px;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 280px));
+  gap: 36px 28px;
 }
 .card { display: block; }
 .card a.hit {
@@ -209,6 +207,7 @@ body { overflow-x: hidden; }
   margin: 18px 0 16px;
   background: #000;
   overflow: hidden;
+  line-height: 0;
   box-shadow: 0 40px 80px rgba(0,0,0,0.45);
 }
 .player-stage video {
