@@ -3,38 +3,34 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>播放 · Link Play</title>
+  <title>Link Play</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body class="theater">
-  <div class="noise" aria-hidden="true"></div>
   <header class="bar theater-bar">
     <a class="logo" href="index.html">Link<span>Play</span></a>
     <div class="watch-actions">
-      <a class="ghost" href="index.html">片单</a>
-      <button class="ghost solid" id="copy-link" type="button">复制链接</button>
+      <a class="ghost" href="index.html">返回</a>
+      <button class="ghost solid" id="copy-link" type="button">复制</button>
     </div>
   </header>
-
   <main class="screen">
-    <p id="status" class="status">灯还没暗下来…</p>
     <div class="player-stage">
       <video id="player" controls playsinline></video>
     </div>
     <div class="ticker" aria-live="polite">
       <div class="progress"><span id="progress-bar"></span></div>
       <span id="percent">0%</span>
-      <span id="peers">0 节点</span>
-      <span id="speed">0 B/s</span>
-      <span id="downloaded">0 B</span>
+      <span id="peers">0</span>
+      <span id="speed">0</span>
     </div>
-    <section class="caption">
-      <h1 id="title">加载中</h1>
-      <p id="description" class="lede"></p>
-    </section>
+    <p id="status" class="status"></p>
+    <h1 id="title"></h1>
+    <p id="description" hidden></p>
+    <span id="downloaded" hidden></span>
   </main>
   <script type="module" src="assets/watch.js"></script>
 </body>
